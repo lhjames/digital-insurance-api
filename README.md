@@ -13,8 +13,11 @@ bundle exec rake db:seed
 ### How to access the endpoints
 
 Launch the server with `bundle exec rails s`
+
 Then go to the following endpoints:
+
 `http://localhost:3000/api/v1/contracts`
+
 `http://localhost:3000/api/v1/options`
 
 If the database hasn't been seeded, the endpoints won't return anything.

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 require 'support/api_helpers'
 require 'support/controller_helpers'
@@ -7,7 +9,7 @@ RSpec.describe 'Contracts', type: :request do
     context 'when creating a contract with valid parameters' do
       let!(:admin) { FactoryBot.create(:user, role: 'admin') }
       let!(:my_contract) { FactoryBot.create(:contract) }
-      let(:customer) { FactoryBot.create(:customer)}
+      let(:customer) { FactoryBot.create(:customer) }
 
       before { login_as(admin) }
 

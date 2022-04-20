@@ -4,31 +4,32 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    # Define abilities for the passed in user here. For example:
-    #
-    #   user ||= User.new # guest user (not logged in)
-    #   if user.admin?
-    #     can :manage, :all
-    #   else
-    #     can :read, :all
-    #   end
-    #
-    # The first argument to `can` is the action you are giving the user
-    # permission to do.
-    # If you pass :manage it will apply to every action. Other common actions
-    # here are :read, :create, :update and :destroy.
-    #
-    # The second argument is the resource the user can perform the action on.
-    # If you pass :all it will apply to every resource. Otherwise pass a Ruby
-    # class of the resource.
-    #
-    # The third argument is an optional hash of conditions to further filter the
-    # objects.
-    # For example, here the user can only update published articles.
-    #
-    #   can :update, Article, :published => true
-    #
-    # See the wiki for details:
-    # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+    @user ||= User.new
+    admin_autorisations if @user.role == "admin"
+    customer_autorisations if @user.role == "customer"
+  end
+
+  private
+
+  def admin_autorisations
+    can :manage, Customer
+    can :manage, Contract
+  end
+
+  def customer_autorisations
+    can :read, Contract
+    can :edit, Contract
+    can :update, Contract
+    can :delete, Contract
   end
 end
+
+# • Un admin peut: 
+# • accéder a toutes les infos de tous les utilisateurs; 
+# • créer des utilisateurs clients ou admins; 
+# - supprimer un user
+
+# Seul un admin peut faire un new sur contract
+
+# Le delete peut être fait par admin et customer
+

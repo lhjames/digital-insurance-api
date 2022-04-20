@@ -1,5 +1,6 @@
 class Api::V1::ContractsController < ApplicationController
   def index
+    authorize! :read, Contract
     contracts = Contract.all
     render json: contracts, status: 200
   end
@@ -14,6 +15,7 @@ class Api::V1::ContractsController < ApplicationController
   end
 
   def create
+    authorize! :create, Contract
     contract = Contract.new(
       start_date: contract_params[:start_date],
       end_date: contract_params[:end_date],
@@ -25,12 +27,6 @@ class Api::V1::ContractsController < ApplicationController
     else
       render json: {error: "Error creating contract"}
     end
-  end
-
-  def edit
-  end
-
-  def update
   end
 
   def delete

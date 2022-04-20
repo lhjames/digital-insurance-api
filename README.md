@@ -1,24 +1,40 @@
-# README
+### Digital insurance API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Rails app with a Restful api to manage insurance contracts.
 
-Things you may want to cover:
+### How to seed the database
 
-* Ruby version
+```
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
+```
 
-* System dependencies
+### How to access the endpoints
 
-* Configuration
+Launch the server with `bundle exec rails s`
+Then go to the following endpoints:
+`http://localhost:3000/api/v1/contracts`
+`http://localhost:3000/api/v1/options`
 
-* Database creation
+If the database hasn't been seeded, the endpoints won't return anything.
 
-* Database initialization
+### Launch tests
 
-* How to run the test suite
+A few specs have been implemented to test the API requests.
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+bundle exec rspec spec/requests/get_contract_spec.rb
+```
 
-* Deployment instructions
+```
+bundle exec rspec spec/requests/post_contract_spec.rb
+```
 
-* ...
+### Dependencies
+
+The gem `cancancan` has been implemented in order to perform the authorizations on the app. The file `ability.rb` manages the authorizations for customers and admins.
+
+The gem `aasm` manages the state machine for contracts.
+
+API tests depends on the `rspec` gem.

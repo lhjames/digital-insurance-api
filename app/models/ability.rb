@@ -13,7 +13,8 @@ class Ability
 
   def admin_autorisations
     can :manage, Customer
-    can :manage, Contract
+    can :create, Contract
+    can :delete, Contract
   end
 
   def customer_autorisations

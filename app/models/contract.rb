@@ -5,7 +5,7 @@ require 'aasm'
 class Contract < ApplicationRecord
   include AASM
 
-  has_many :customers
+  belongs_to :customer
   has_many :options
 
   validates :start_date, presence: true

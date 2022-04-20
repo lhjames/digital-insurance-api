@@ -1,6 +1,5 @@
 class Api::V1::ContractsController < ApplicationController
   def index
-    authorize! :read, Contract
     contracts = Contract.all
     render json: contracts, status: 200
   end

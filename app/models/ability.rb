@@ -28,8 +28,3 @@ end
 # • accéder a toutes les infos de tous les utilisateurs; 
 # • créer des utilisateurs clients ou admins; 
 # - supprimer un user
-
-# Seul un admin peut faire un new sur contract
-
-# Le delete peut être fait par admin et customer
-

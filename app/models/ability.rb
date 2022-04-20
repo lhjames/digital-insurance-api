@@ -23,8 +23,3 @@ class Ability
     can :delete, Contract
   end
 end
-
-# • Un admin peut: 
-# • accéder a toutes les infos de tous les utilisateurs; 
-# • créer des utilisateurs clients ou admins; 
-# - supprimer un user

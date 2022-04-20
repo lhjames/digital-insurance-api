@@ -3,10 +3,10 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
-    @user ||= User.new
-    admin_autorisations if @user.role == "admin"
-    customer_autorisations if @user.role == "customer"
+  def initialize(_user)
+    @user = User.new
+    admin_autorisations if @user.role == 'admin'
+    customer_autorisations if @user.role == 'customer'
   end
 
   private

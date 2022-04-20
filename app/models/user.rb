@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
-  ADMIN = "admin"
-  CUSTOMER = "customer"
+
+  ADMIN = 'admin'
+  CUSTOMER = 'customer'
 
   ROLES = [ADMIN, CUSTOMER].freeze
 

@@ -1,3 +1,3 @@
 class Option < ApplicationRecord
-  belongs_to :contract, presence: true
+  belongs_to :contract
 end

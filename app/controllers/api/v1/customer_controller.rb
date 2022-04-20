@@ -4,7 +4,7 @@ module Api
   module V1
     class CustomerController < ApplicationController
       def index
-        authorize! :manage, Customer
+        authorize! :index, Customer
         customers = Customer.all
         render json: customers, status: 200
       end

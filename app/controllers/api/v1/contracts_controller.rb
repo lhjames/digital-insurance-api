@@ -25,6 +25,8 @@ module Api
           customers: contract_params[:customers],
           options: contract_params[:options]
         )
+        @contract.customer_id = current_user.id
+
         if contract.save
           render json: contract, status: 200
         else
